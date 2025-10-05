@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Travel Explorer — Events, Locations, Transportation</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">🧭</span>
+        <h1>Travel Explorer</h1>
+      </div>
+
+      <nav class="tabs" role="tablist" aria-label="Browse categories">
+        <a id="tab-events" href="#events" role="tab" aria-controls="panel-events" aria-selected="true">Events</a>
+        <a id="tab-locations" href="#locations" role="tab" aria-controls="panel-locations" aria-selected="false">Locations</a>
+        <a id="tab-transport" href="#transport" role="tab" aria-controls="panel-transport" aria-selected="false">Transportation</a>
+      </nav>
+    </header>
+
+    <section class="controls" aria-label="Search and filters">
+      <div class="search-row">
+        <input id="search-input" type="search" placeholder="Search by name, tags, or description" aria-label="Search" />
+        <label class="favorites-toggle">
+          <input id="only-favorites" type="checkbox" />
+          <span>Only favorites</span>
+        </label>
+      </div>
+      <div id="filters" class="filters" aria-live="polite"></div>
+    </section>
+
+    <main id="content" class="content" tabindex="-1">
+      <div id="list" class="card-grid" role="region" aria-live="polite"></div>
+      <div id="empty-state" class="empty" hidden>No results. Try adjusting filters.</div>
+    </main>
+
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+      <div class="modal-backdrop" data-close="true"></div>
+      <div class="modal-dialog" role="document">
+        <header class="modal-header">
+          <h2 id="modal-title"></h2>
+          <button id="modal-close" class="icon-btn" aria-label="Close dialog">✕</button>
+        </header>
+        <div id="modal-body" class="modal-body"></div>
+        <footer class="modal-footer">
+          <button id="modal-fav" class="btn">Toggle Favorite</button>
+        </footer>
+      </div>
+    </div>
+
+    <footer class="app-footer">
+      <p>Sample app — no backend required.</p>
+    </footer>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
